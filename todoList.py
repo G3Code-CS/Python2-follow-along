@@ -5,8 +5,12 @@ class TodoList:
     
     def __str__(self):
         return f"{self.name}: {self.items}"
+    
+    def __repr__(self):
+        return f"TodoList({repr(self.name)})"
 
 quit = False
+all_lists = []
 
 while not quit:
     #Get the input from the user
@@ -18,8 +22,8 @@ while not quit:
 
     elif command == 'c': # create
         name = input("Enter list name :").strip()
-        tl = TodoList("list 1")
-        tl.items.append("Get milk")
-        tl.items.append("Get roses")
+        
+        new_list = TodoList(name)
+        all_lists.append(new_list)
+        print(all_lists)
 
-        print(tl)
